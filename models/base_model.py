@@ -6,14 +6,10 @@ import uuid
 
 
 class BaseModel:
-    """class Base"""
+    """Base class"""
     def __init__(self, *args, **kwargs):
-        """ Constructor """
+        """ Initialize basemodel """
         if kwargs:
-            # self.__dict__ = kwargs
-            # self.created_at = datetime.strptime(self.created_at,
-            #                                     "%Y-%m-%dT%H:%M:%S.%f".)
-
             for key, value in kwargs.items():
                 if key == "created_at":
                     value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
@@ -28,24 +24,19 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        """
-        Returns a string representation of the object
-        """
-        className = self.__class__.__name__
-        return "[{}] ({}) {}".format(className, self.id, self.__dict__)
+        """Return string representation of object"""
+        class_name = self.__class__.__name__
+        return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
 
     def save(self):
-        """ updates with the current datetime """
+        """ updates with current datetime """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """returns dictionary with all keys/value of the instance"""
-        dict_copy = self.__dict__.copy()
-        dict_copy["created_at"] = self.created_at.isoformat()
-        dict_copy["updated_at"] = self.updated_at.isoformat()
-        dict_copy['__class__'] = self.__class__.__name__
-        return dict_copy
-
-    # return self.id
-    # def id(self):
+        """returns dictionary with all keys/value of instance"""
+        dic_copy = self.__dict__.copy()
+        dic_copy["created_at"] = self.created_at.isoformat()
+        dic_copy["updated_at"] = self.updated_at.isoformat()
+        dic_copy['__class__'] = self.__class__.__name__
+        return dic_copy
