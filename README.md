@@ -31,7 +31,7 @@ This command line interpreter serves as the frontend of the web app where users 
 * It can work in two different modes interactive and non-interactive.
 
     * In **Interactive mode**, a program allows real-time user interaction. It provides a prompt where users can input commands, receive immediate feedback, and make further inputs based on the program's responses. 
-This mode is highly engaging and facilitates dynamic exploration, debugging, and experimentation.
+    * This mode is highly engaging and facilitates dynamic exploration, debugging, and experimentation.
 
 ```
 $ ./console.py
@@ -48,7 +48,8 @@ $
 ```
 
     * In **Non-interactive mode**,a program executes predefined tasks without requiring constant user input. It operates autonomously, following a predetermined sequence of commands or instructions.
-This mode is often used for automated processes, batch operations, or when user interaction is not necessary or feasible.
+    * This mode is often used for automated processes, batch operations, or when user interaction is not necessary or feasible.
+
 
 ```
 $ echo "help" | ./console.py
