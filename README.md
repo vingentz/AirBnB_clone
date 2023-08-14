@@ -18,11 +18,11 @@ The interface of the application is just like the Bash shell except that this ha
 This command line interpreter serves as the frontend of the web app where users can interact with the backend which was developed with python OOP programming.
 
  The  console will  perform the folloewing:
-	* Create a new object (ex: a new User or a new Place)
-	* Retrieve an object from a file, a database etc…
-	* Do operations on objects (count, compute stats, etc…)
-	* Update attributes of an object
-	* Destroy an object
+-   Creating new objects (ex: a new User or a new Place)
+-   Retrieving an object from a file, a database etc…
+-   Doing operations on objects (count, compute stats, etc…)
+-   Updating attributes of an object
+-   Destroying an object
 
 ---
 
@@ -30,43 +30,47 @@ This command line interpreter serves as the frontend of the web app where users 
 
 * It can work in two different modes interactive and non-interactive.
 
-    * In **Interactive mode**,  
+    * In **Interactive mode**, a program allows real-time user interaction. It provides a prompt where users can input commands, receive immediate feedback, and make further inputs based on the program's responses. 
+This mode is highly engaging and facilitates dynamic exploration, debugging, and experimentation.
 
-
-`$ ./console.py`
-`(hbnb) help`
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-
-`(hbnb)`
-`(hbnb)`
-`(hbnb) quit`
-`$`
-
-
-* In **Non-interactive mode**,
-`$echo "help" | ./console.py`
-`(hbnb)`
+```
+$ ./console.py
+(hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-`(hbnb)` 
-`$`
-`$ cat test_help`
-`help`
-`$`
-`$ cat test_help | ./console.py`
-`(hbnb)`
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
+```
+
+    * In **Non-interactive mode**,a program executes predefined tasks without requiring constant user input. It operates autonomously, following a predetermined sequence of commands or instructions.
+This mode is often used for automated processes, batch operations, or when user interaction is not necessary or feasible.
+
+```
+$ echo "help" | ./console.py
+(hbnb)
 
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-`(hbnb)`
-`$`
+(hbnb) 
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
 
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+```
 ---
 
 ## Author :black_nib:
