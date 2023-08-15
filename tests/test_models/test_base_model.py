@@ -68,7 +68,5 @@ class TestBaseModel(unittest.TestCase):
                 self.assertIsInstance(value, str)
             if key == 'updated_at':
                 self.assertIsInstance(value, str)
-
-
     if __name__ == '__main__':
         unittest.main()
