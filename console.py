@@ -95,30 +95,51 @@ class HBNBCommand(cmd.Cmd):
                 except KeyError:
                     print("** no instance found **")
 
-    def do_destroy(self, args):
-        """Destroy the string representation of an instance
-            based on the class name and id
-            Args: arg(line)
-        """
-        args_split = args.split()
-
-        if (len(args_split) == 0):
+    def do_destroy(self, arg):
+        """Deletes an instance based on class name and id"""
+        deltok = shlex.split(arg)
+        if len(deltok) == 0:
             print("** class name missing **")
+            return
+        elif len(deltok) == 1:
+            print("** instance id missing **")
+            return
+        elif deltok[0] not in self.classes:
+            print("** class doesn't exist **")
+            return
         else:
-            cls_name = args_split[0]
-            if ((cls_name in type(self).__classes and len(args_split) < 2)):
-                print("** instance id missing **")
-            elif (cls_name not in type(self).__classes):
-                print("** class doesn't exist **")
+            dic = models.storage.all()
+            key = deltok[0] + '.' + deltok[1]
+            if key in dic:
+                del dic[key]
+                models.storage.save()
             else:
-                try:
-                    cls_id = args_split[1]
-                    key = cls_name + "." + cls_id
-                    all_objs = storage.all()
-                    del all_objs[key]
-                    storage.save()
-                except KeyError:
-                    print("** no instance found **")
+                print("** no instance found **")
+
+#    def do_destroy(self, args):
+#        """Destroy the string representation of an instance
+#            based on the class name and id
+#            Args: arg(line)
+#        """
+#        args_split = args.split()
+#
+#        if (len(args_split) == 0):
+#            print("** class name missing **")
+#        else:
+#            cls_name = args_split[0]
+#            if ((cls_name in type(self).__classes and len(args_split) < 2)):
+#                print("** instance id missing **")
+#            elif (cls_name not in type(self).__classes):
+#                print("** class doesn't exist **")
+#            else:
+#                try:
+#                    cls_id = args_split[1]
+#                    key = cls_name + "." + cls_id
+#                    all_objs = storage.all()
+#                    del all_objs[key]
+#                    storage.save()
+#                except KeyError:
+#                    print("** no instance found **")
 
     def do_all(self, args):
         """Prints all string representation of all instances based
