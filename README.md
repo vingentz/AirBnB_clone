@@ -46,8 +46,9 @@ EOF  help  quit
 (hbnb) quit
 $
 ```
+---
 
-    * In **Non-interactive mode**,a program executes predefined tasks without requiring constant user input. It operates autonomously, following a predetermined sequence of commands or instructions.
+* In **Non-interactive mode**,a program executes predefined tasks without requiring constant user input. It operates autonomously, following a predetermined sequence of commands or instructions.
     * This mode is often used for automated processes, batch operations, or when user interaction is not necessary or feasible.
 
 
@@ -72,6 +73,17 @@ EOF  help  quit
 (hbnb) 
 $
 ```
+|   **Command** |  **Definition**						 |
+|---------------|--------------------------------------------------------------- |
+|  `help`	|  Provides a text describing how to use a command |
+|  `quit`	|  Exits the console						 |
+|  `EOF` 	|  Exits the console						 |
+|  `create` 	|  Creates a new instance, saves it to JSON file, and prints `id`   |
+|  `show`	|  Prints the string representation of an instance based on the class name	|
+|  `destroy`  	|  Deletes an instance based on the class name and `id`		   		|
+|  `all`  	|  Prints all string representations of all instances, can be specified by class|
+|  `update`	|  Updates an instance based on the class name and `id` by adding or updating attribute (saves the changes into a JSON file) |
+
 ---
 
 ## Author :black_nib:
